@@ -17,7 +17,9 @@ pipeline{
 		}
 		stage('Create Docker image') {
 			steps{
-				app=docker.build("CalculatorWebapp", "./BinaryCalculatorWebapp")
+				script{
+					sh 'docker build -t CalculatorWebapp ./BinaryCalculatorWebapp '
+				}
 			}
 		}
 	}
