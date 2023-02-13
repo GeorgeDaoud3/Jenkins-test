@@ -1,6 +1,7 @@
 pipeline{
 	agent any
 	stages {
+		def app
 		stage('Clone repository') {
 			/* Let's make sure we have the repository cloned to our workspace */
 			steps {
@@ -17,8 +18,8 @@ pipeline{
 		stage('Create Docker image') {
 			steps{
 				script{
-					sh 'docker build -t CalculatorWebapp ./BinaryCalculatorWebapp '
-				}
+					app=docker.build("CalculatorWebapp", "./BinaryCalculatorWebapp")
+				}	
 			}
 		}
 	}
