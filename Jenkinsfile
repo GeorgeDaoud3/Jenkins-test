@@ -16,13 +16,11 @@ pipeline{
 		}
 		node{
 			def app
-		stage('Create Docker image') {
-			steps {
-				
+			stage('Create Docker image') {
+				steps {
 					app=docker.build("CalculatorWebapp", "./BinaryCalculatorWebapp")
 				}
 			}
-		}
 		}
 	}
 }
