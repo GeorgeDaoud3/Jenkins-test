@@ -7,13 +7,17 @@ pipeline{
 				checkout scm
 			}
 		}
-	  stage('maven install') {
-		steps {
-		  withMaven( maven: 'Maven3') {
-				sh 'mvn -f ./test/ clean install'
+		stage('maven install') {
+			steps {
+			  withMaven( maven: 'Maven3') {
+					sh 'mvn -f ./BinaryCalculatorWebapp/ clean package'
+				}
 			}
 		}
-	  }
-
+		stage('Create Docker image') {
+			steps {
+				docker.build("CalculatorWebapp", "./BinaryCalculatorWebapp")
+			}
+		}
 	}
 }
