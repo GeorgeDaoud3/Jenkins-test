@@ -14,10 +14,14 @@ pipeline{
 				}
 			}
 		}
+		node{
 		stage('Create Docker image') {
 			steps {
-				docker.build("CalculatorWebapp", "./BinaryCalculatorWebapp")
+				
+					docker.build("CalculatorWebapp", "./BinaryCalculatorWebapp")
+				}
 			}
+		}
 		}
 	}
 }
