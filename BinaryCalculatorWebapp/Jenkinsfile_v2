@@ -8,7 +8,7 @@ pipeline {
     CLUSTER_ZONE = "northamerica-northeast1-b"
     IMAGE_TAG = "gcr.io/${PROJECT}/${APP_NAME}"
     credentialsId = "My Project 65158"
-    JENKINS_CRED = "${PROJECT}"
+    JENKINS_CRED = "green-tract-379622"
   }
   
 agent {
@@ -66,7 +66,7 @@ spec:
     //script {
       container('gcloud') {
       
-		  //sh "/builder/google-cloud-sdk/bin/gcloud asset search-all-iam-policies"
+		  sh "/builder/google-cloud-sdk/bin/gcloud asset search-all-iam-policies"
 		  sh "/builder/google-cloud-sdk/bin/gcloud builds submit -t ${IMAGE_TAG} ./BinaryCalculatorWebapp/"
 		}
 	//}}
