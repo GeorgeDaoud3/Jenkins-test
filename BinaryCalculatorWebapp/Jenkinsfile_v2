@@ -7,7 +7,7 @@ pipeline {
     CLUSTER = "sofe3980u"
     CLUSTER_ZONE = "northamerica-northeast1-b"
     IMAGE_TAG = "gcr.io/${PROJECT}/${APP_NAME}"
-    credentialsId = "green-tract-379622"
+    credentialsId = "My Project 65158"
   }
   
 agent {
@@ -60,12 +60,12 @@ spec:
     //}
     stage('Build and push image with Container Builder') {
       steps {
-      withCredentials([file(credentialsId: 'My Project 65158', variable: 'MY_FILE')]) {
+      //withCredentials([file(credentialsId: 'My Project 65158', variable: 'MY_FILE')]) {
 		container('gcloud') {
 		  sh "/builder/google-cloud-sdk/bin/gcloud asset search-all-iam-policies"
 		  sh "/builder/google-cloud-sdk/bin/gcloud builds submit -t ${IMAGE_TAG} ./BinaryCalculatorWebapp/"
 		}
-	}
+	//}
       }
     }
   }
