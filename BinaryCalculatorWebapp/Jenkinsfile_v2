@@ -12,6 +12,7 @@ pipeline {
   
 agent {
     kubernetes {
+    cloud "kubernetes"
 	label 'sample-app'
       defaultContainer 'jnlp'
       yaml """
@@ -60,13 +61,13 @@ spec:
     //}
     stage('Build and push image with Container Builder') {
       steps {
-      withCredentials([file(credentialsId: 'My Project 65158', variable: 'GOOGLE_AUTH')]) {
-    script {
+      //withCredentials([file(credentialsId: 'My Project 65158', variable: 'GOOGLE_AUTH')]) {
+    //script {
       container('gcloud') {
 		  sh "/builder/google-cloud-sdk/bin/gcloud asset search-all-iam-policies"
 		  sh "/builder/google-cloud-sdk/bin/gcloud builds submit -t ${IMAGE_TAG} ./BinaryCalculatorWebapp/"
 		}
-	}}
+	//}}
       }
     }
   }
