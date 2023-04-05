@@ -65,7 +65,9 @@ spec:
       //withCredentials([file(credentialsId: 'My Project 65158', variable: 'GOOGLE_AUTH')]) {
     //script {
       container('gcloud') {
-                  sh "ls -la ~"
+                  sh "ls -la"
+		  sh "ls -la ~"
+		  sh "gcloud auth activate-service-account jenkins-sa@green-tract-379622.iam.gserviceaccount.com --key-file=./green-tract-379622-6e0e194464fd.json --project=green-tract-379622"
 		  sh "/builder/google-cloud-sdk/bin/gcloud asset search-all-iam-policies"
 		  sh "/builder/google-cloud-sdk/bin/gcloud builds submit -t ${IMAGE_TAG} ./BinaryCalculatorWebapp/"
 		}
