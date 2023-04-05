@@ -65,7 +65,7 @@ spec:
       //withCredentials([file(credentialsId: 'My Project 65158', variable: 'GOOGLE_AUTH')]) {
     //script {
       container('gcloud') {
-      
+                  sh "ls -la ~"
 		  sh "/builder/google-cloud-sdk/bin/gcloud asset search-all-iam-policies"
 		  sh "/builder/google-cloud-sdk/bin/gcloud builds submit -t ${IMAGE_TAG} ./BinaryCalculatorWebapp/"
 		}
