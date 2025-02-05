@@ -18,7 +18,7 @@
    3. Pull the Jenkins Helm chart from a repository.  
       ```cmd
       helm repo add jenkinsci https://charts.jenkins.io
-      helm repo update
+      helm repo update 
       ```
    4. Clone the repository for the Helm values.
       ```cmd
