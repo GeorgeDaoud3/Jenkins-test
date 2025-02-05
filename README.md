@@ -1,5 +1,5 @@
 # Milestone 4: Continuous Integration and Continuous Delivery (Jenkins) 
-## Objective   
+## Objective    
 1. Git Familiar with Jenkins.
 2. Understand the pipeline syntax used by Jenkins. 
 3. Configure a continuous integration pipeline for a Jenkins job. 
